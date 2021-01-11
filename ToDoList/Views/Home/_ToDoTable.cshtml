@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ToDoList.Models.Todotask>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form method="post" class="">
+    <h1> ToDO List</h1>
+    <table class="table">
+        <thead>
+        <th>Tasks</th>
+        <th>Done</th>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.TodotaskName</td>
+                <td><input type="checkbox" checked="@item.isDone" /> </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "edit", "home", new { TodoTaskID = item.TodotaskID })   |
+                    @Html.ActionLink("Delete", "delete", "home", new { TodoTaskID = item.TodotaskID })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</form>
