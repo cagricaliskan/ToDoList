@@ -26,6 +26,11 @@ namespace ToDoList.Controllers
             return View(_db.todotasks.ToList());
         }
 
+        public IActionResult BuildToDoTable()
+        {
+            return PartialView("_ToDoTable", _db.todotasks.ToList());
+        }
+
         public IActionResult Edit(int? todotaskid)
         {
             Todotask todotask = null;

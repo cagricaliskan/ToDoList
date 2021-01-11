@@ -1,11 +1,15 @@
-﻿
+﻿@model IEnumerable<ToDoList.Models.Todotask>
+
+@Html.ActionLink("Create New", "index", "home")
 
 
+@*  <partial name="~/Views/Home/_ToDoTable.cshtml"/>  *@
+<div id="table">
 
-<div> 
-    
-    
-    <partial name="~/Views/Home/_ToDoTable.cshtml"/>
-    
-    
 </div>
+
+
+@section Scripts{ 
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/UserScripts/Build.js"></script>
+}
