@@ -49,7 +49,7 @@ namespace ToDoList.Controllers
                 ViewBag.Message = "Error. You must enter a task name";
                 ViewBag.Status = "danger";
             }
-            return RedirectToAction("index");
+            return View();
         }
 
         public IActionResult Edit(int? todotaskid)

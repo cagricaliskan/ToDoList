@@ -6,7 +6,7 @@
 </head>
 <div class="row mainbody">
     <h1>Create a new task</h1>
-    <div class="col-md-6">
+    <div class="col-md-8">
         <form method="post" asp-action="create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -21,12 +21,13 @@
             </div>
 
             @Html.ActionLink("Back to main page", "index", "home")
-            
-            @if (ViewBag.Message != null)
-            {
-                <div class="alert alert-@ViewBag.Status">@ViewBag.Message</div>
-            }
+
+
         </form>
     </div>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-@ViewBag.Status">@ViewBag.Message</div>
+    }
 </div>
 
