@@ -14,15 +14,15 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>@item.TodotaskName</td>
-                <td><input type="checkbox" checked="@item.isDone" /> </td>
+                <tr>
+                    <td>@item.TodotaskName</td>
+                    <td><input type="checkbox" checked="@item.isDone" /> </td>
 
-                <td>
-                    @Html.ActionLink("Edit", "edit", "home", new { TodoTaskID = item.TodotaskID })   |
-                    @Html.ActionLink("Delete", "delete", "home", new { TodoTaskID = item.TodotaskID })
-                </td>
-            </tr>
+                    <td>
+                        @Html.ActionLink("Edit", "edit", "home", new { TodoTaskID = item.TodotaskID }, new { @class="btn btn-success" })  
+                        @Html.ActionLink("Delete", "delete", "home", new { TodoTaskID = item.TodotaskID }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
