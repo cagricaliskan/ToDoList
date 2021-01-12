@@ -31,6 +31,27 @@ namespace ToDoList.Controllers
             return PartialView("_ToDoTable", _db.todotasks.ToList());
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+         [HttpPost]
+        public IActionResult Create(Todotask todotasks)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.todotasks.Add(todotasks);
+                _db.SaveChanges();
+            }
+            else
+            {
+                ViewBag.Message = "Error. You must enter a task name";
+                ViewBag.Status = "danger";
+            }
+            return RedirectToAction("index");
+        }
+
         public IActionResult Edit(int? todotaskid)
         {
             Todotask todotask = null;
@@ -69,10 +90,31 @@ namespace ToDoList.Controllers
             return View();
         }
 
-        public IActionResult delete()
+        public IActionResult delete(int? todotaskid)
         {
+            Todotask task = null;
+            if(todotaskid != null)
+            {
+                task = _db.todotasks.Where(x => x.TodotaskID == todotaskid).FirstOrDefault();
+            }
+            return View(task);
+        }
+
+
+        [HttpPost, ActionName("delete")]
+        public IActionResult deletePost(int? todotaskid)
+        {
+            Todotask task = _db.todotasks.FirstOrDefault(x => x.TodotaskID == todotaskid);
+            if (todotaskid != null)
+            {
+                _db.todotasks.Remove(task);
+                _db.SaveChanges();
+                return RedirectToAction("index");
+            }
             return View();
         }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
