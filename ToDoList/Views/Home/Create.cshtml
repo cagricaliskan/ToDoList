@@ -1,39 +1,32 @@
 ﻿@model ToDoList.Models.Todotask
 
 
-    <div class="row">
-        <div class="col-md-4">
-            <form method="post" asp-action="create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                
+<head>
+    <partial name="~/Views/Shared/_Style.cshtml" />
+</head>
+<div class="row mainbody">
+    <h1>Create a new task</h1>
+    <div class="col-md-6">
+        <form method="post" asp-action="create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="form-group">
-                    <label asp-for="TodotaskName" class="control-label" > Task Name</label>
-                    <input asp-for="TodotaskName" class="form-control"/>
-                    <span asp-validation-for="TodotaskName" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="TodotaskName" class="control-label"> Task Name</label>
+                <input asp-for="TodotaskName" class="form-control" />
+                <span asp-validation-for="TodotaskName" class="text-danger"></span>
+            </div>
 
-                @*
+            <div>
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="isDone" class="control-label">Done</label>
-                    <input asp-for="isDone" class="custom-checkbox"/>
-                    <span asp-validation-for="isDone" class="text-danger"></span>
-                </div>
-                *@
-                <div>
-                    <input type="submit" value="Create" class="btn btn-success" />
-                </div>
-
-            </form>
-        </div>
+            @Html.ActionLink("Back to main page", "index", "home")
+            
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-@ViewBag.Status">@ViewBag.Message</div>
+            }
+        </form>
     </div>
-
-@Html.ActionLink("Back to main page", "index", "home")
-
-<div class="col-md-4">
-    @if (ViewBag.Message != null)
-    {
-        <div class="alert alert-@ViewBag.Status">@ViewBag.Message</div>
-    }
 </div>
+

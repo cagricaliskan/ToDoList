@@ -3,24 +3,28 @@
 @{
     ViewData["Title"] = "delete";
 }
+<head>
+<partial name="~/Views/Shared/_Style.cshtml" />
+</head>
 
-<h1>Delete</h1>
-<div class="row">
-    <div class="col-md-4">
+
+<div class="row mainbody">
+    <div class="col-md-6">
+        <h1>Delete</h1>
         <form asp-action="delete" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="TodotaskID" />
 
             <div class="form-group">
                 <label asp-for="TodotaskName" class="control-label">Task Name</label>
-                <input asp-for="TodotaskName" class="form-control" />
+                <input asp-for="TodotaskName" class="form-control" readonly />
                 <span asp-validation-for="TodotaskName" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <input type="submit" value="Delete" class="btn btn-danger" />
             </div>
-           
+            @Html.ActionLink("Back to main page", "index", "home")
         </form>
     </div>
 </div>

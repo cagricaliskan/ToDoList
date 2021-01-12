@@ -39,7 +39,7 @@ namespace ToDoList.Controllers
          [HttpPost]
         public IActionResult Create(Todotask todotasks)
         {
-            if (ModelState.IsValid)
+            if (todotasks.TodotaskName !=null)
             {
                 _db.todotasks.Add(todotasks);
                 _db.SaveChanges();

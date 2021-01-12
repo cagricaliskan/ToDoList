@@ -16,9 +16,6 @@ namespace ToDoList.Models
 
         public bool isDone { get; set; }
 
-        public Todotask()
-        {
-            isDone = false;
-        }
+      
     }
 }
