@@ -39,7 +39,7 @@ namespace ToDoList.Controllers
                 ViewBag.Message = "Error. You must enter a task name";
                 ViewBag.Status = "danger";
             }
-            return View();
+            return View(Tuple.Create<Todotask, IEnumerable<Todotask>>(new Todotask(), _db.todotasks.ToList()));
         }
 
         public IActionResult Create()
