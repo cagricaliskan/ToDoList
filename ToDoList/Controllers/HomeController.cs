@@ -23,13 +23,25 @@ namespace ToDoList.Controllers
 
         public IActionResult Index()
         {
-            return View(_db.todotasks.ToList());
+            return View(Tuple.Create<Todotask, IEnumerable<Todotask>> (new Todotask(), _db.todotasks.ToList()));
         }
 
-        public IActionResult BuildToDoTable()
+        [HttpPost]
+        public IActionResult Index([Bind(Prefix ="Item1")] Todotask todos )
         {
-            return PartialView("_ToDoTable", _db.todotasks.ToList());
+            if (todos.TodotaskName != null)
+            {
+                _db.todotasks.Add(todos);
+                _db.SaveChanges();
+            }
+            else
+            {
+                ViewBag.Message = "Error. You must enter a task name";
+                ViewBag.Status = "danger";
+            }
+            return View();
         }
+
 
         public IActionResult Create()
         {
@@ -49,6 +61,7 @@ namespace ToDoList.Controllers
                 ViewBag.Message = "Error. You must enter a task name";
                 ViewBag.Status = "danger";
             }
+            ModelState.Clear(); 
             return View();
         }
 

@@ -1,0 +1,13 @@
+﻿@model Tuple<ToDoList.Models.Todotask, IEnumerable<ToDoList.Models.Todotask>>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="form-group">
+    <label asp-for="Item1.TodotaskName" class="control-label"> Task Name</label>
+    <input asp-for="Item1.TodotaskName" class="form-control" />
+    <span asp-validation-for="Item1.TodotaskName" class="text-danger"></span>
+</div>
+
+<div>
+    <input type="submit" value="Create" class="btn btn-success" />
+</div>

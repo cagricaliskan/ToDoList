@@ -1,1 +1,24 @@
-﻿
+﻿@model Tuple<ToDoList.Models.Todotask, IEnumerable<ToDoList.Models.Todotask>>
+
+<h1> ToDO List</h1>
+@Html.ActionLink("Create New Task", "create", "home")
+<table class="table">
+    <thead>
+    <th>Tasks</th>
+    <th>Done</th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Item2)
+        {
+            <tr>
+                <td>@item.TodotaskName</td>
+                <td><input type="checkbox" checked="@item.isDone" /> </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "edit", "home", new { TodoTaskID = item.TodotaskID }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Delete", "delete", "home", new { TodoTaskID = item.TodotaskID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

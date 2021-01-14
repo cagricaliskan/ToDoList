@@ -1,35 +1,15 @@
-﻿@model IEnumerable<ToDoList.Models.Todotask>
-
-@{
-    ViewData["Title"] = "Home Page";
-
-}
+﻿@model Tuple<ToDoList.Models.Todotask, IEnumerable<ToDoList.Models.Todotask>>
 
 <head>
     <partial name="~/Views/Shared/_Style.cshtml" />
 </head>
+<div>
+    <form method="post" class="mainbody">
 
-<form method="post" class="mainbody">
-    <h1> ToDO List</h1>
-    @Html.ActionLink("Create New Task", "create", "home")
-    <table class="table">
-        <thead>
-        <th>Tasks</th>
-        <th>Done</th>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.TodotaskName</td>
-                    <td><input type="checkbox" checked="@item.isDone" /> </td>
+       <partial name="~/Views/Home/_ToDoTable.cshtml" />
 
-                    <td>
-                        @Html.ActionLink("Edit", "edit", "home", new { TodoTaskID = item.TodotaskID }, new { @class = "btn btn-success" })
-                        @Html.ActionLink("Delete", "delete", "home", new { TodoTaskID = item.TodotaskID }, new { @class = "btn btn-danger" })
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</form>
+       <partial name="~/Views/Home/_Add.cshtml" />
+
+    </form>
+
+</div>
