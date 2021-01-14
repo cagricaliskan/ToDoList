@@ -2,14 +2,35 @@
 
 <head>
     <partial name="~/Views/Shared/_Style.cshtml" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </head>
 <div>
     <form method="post" class="mainbody">
 
-       <partial name="~/Views/Home/_ToDoTable.cshtml" />
+        <partial name="~/Views/Home/_ToDoTable.cshtml" />
 
-       <partial name="~/Views/Home/_Add.cshtml" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="Item1.TodotaskName" class="control-label"> Task Name</label>
+            <input asp-for="Item1.TodotaskName" class="form-control" />
+            <span asp-validation-for="Item1.TodotaskName" class="text-danger"></span>
+        </div>
+
+        <div>
+            <input id="btn" type="submit" value="Create" class="btn btn-success" />
+        </div>
 
     </form>
 
 </div>
+
+<script>
+    $(function () {
+        $("btn").click(function () {
+
+        })
+    })
+</script>
