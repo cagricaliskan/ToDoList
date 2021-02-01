@@ -15,22 +15,18 @@
 
         <div class="form-group">
             <label asp-for="Item1.TodotaskName" class="control-label"> Task Name</label>
-            <input asp-for="Item1.TodotaskName" class="form-control" />
+            <input  asp-for="Item1.TodotaskName" class="form-control" />
             <span asp-validation-for="Item1.TodotaskName" class="text-danger"></span>
         </div>
 
         <div>
-            <input id="btn" type="submit" value="Create" class="btn btn-success" />
+            <input type="submit" value="Create" class="btn btn-success" />
         </div>
 
+
+        <input id="txtData" type="text" class="form-control" placeholder="veri gir" />
+        <button id="btn" type="button" class="btn btn-success">Gönder</button>
     </form>
 
 </div>
 
-<script>
-    $(function () {
-        $("btn").click(function () {
-
-        })
-    })
-</script>

@@ -26,6 +26,15 @@ namespace ToDoList.Controllers
             return View(Tuple.Create<Todotask, IEnumerable<Todotask>> (new Todotask(), _db.todotasks.ToList()));
         }
 
+        
+
+        public PartialViewResult VerileriGetir(Todotask veri)
+        {
+           
+
+            return PartialView("_Part.cshtml");
+        }
+
         [HttpPost]
         public IActionResult Index([Bind(Prefix ="Item1")] Todotask todos )
         {
@@ -42,7 +51,7 @@ namespace ToDoList.Controllers
             return View(Tuple.Create<Todotask, IEnumerable<Todotask>>(new Todotask(), _db.todotasks.ToList()));
         }
 
-        public IActionResult Create()
+      public IActionResult Create()
         {
             return View();
         }
