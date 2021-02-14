@@ -70,7 +70,7 @@ namespace ToDoList.Controllers
                 ViewBag.Status = "danger";
             }
             ModelState.Clear(); 
-            return View();
+            return RedirectToAction("index");
         }
 
         public IActionResult Edit(int? todotaskid)

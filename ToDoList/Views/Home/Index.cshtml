@@ -1,7 +1,7 @@
 ﻿@model Tuple<ToDoList.Models.Todotask, IEnumerable<ToDoList.Models.Todotask>>
 
 <head>
-    <partial name="~/Views/Shared/_Style.cshtml" />
+    <partial name="~/Views/Shared/_Style.cshtml" /> 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
@@ -15,7 +15,7 @@
 
         <div class="form-group">
             <label asp-for="Item1.TodotaskName" class="control-label"> Task Name</label>
-            <input  asp-for="Item1.TodotaskName" class="form-control" />
+            <input asp-for="Item1.TodotaskName" class="form-control" />
             <span asp-validation-for="Item1.TodotaskName" class="text-danger"></span>
         </div>
 
@@ -23,9 +23,10 @@
             <input type="submit" value="Create" class="btn btn-success" />
         </div>
 
-
+        @*
         <input id="txtData" type="text" class="form-control" placeholder="veri gir" />
         <button id="btn" type="button" class="btn btn-success">Gönder</button>
+        *@
     </form>
 
 </div>

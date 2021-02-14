@@ -15,7 +15,7 @@
                 <td><input type="checkbox" checked="@item.isDone" /> </td>
 
                 <td>
-                    @Html.ActionLink("Edit", "edit", "home", new { TodoTaskID = item.TodotaskID }, new { @class = "btn btn-success" })
+                    <a onclick="popUp('@Url.Action("edit", "home",new { TodoTaskID = item.TodotaskID } ,Context.Request.Scheme)', 'Edit' )" class="btn btn-success" style="color:aliceblue" >Edit</a>
                     @Html.ActionLink("Delete", "delete", "home", new { TodoTaskID = item.TodotaskID }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
