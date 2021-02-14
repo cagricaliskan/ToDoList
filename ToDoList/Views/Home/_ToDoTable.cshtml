@@ -16,7 +16,7 @@
 
                 <td>
                     <a onclick="popUp('@Url.Action("edit", "home",new { TodoTaskID = item.TodotaskID } ,Context.Request.Scheme)', 'Edit' )" class="btn btn-success" style="color:aliceblue" >Edit</a>
-                    @Html.ActionLink("Delete", "delete", "home", new { TodoTaskID = item.TodotaskID }, new { @class = "btn btn-danger" })
+                    <a onclick="popUp('@Url.Action("delete", "home",new { TodoTaskID = item.TodotaskID } ,Context.Request.Scheme)', 'Delete' )" class="btn btn-danger" style="color:aliceblue">Delete</a>
                 </td>
             </tr>
         }
