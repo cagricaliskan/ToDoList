@@ -12,6 +12,7 @@ popUp = (url, title) => {
             $("#form-modal .modal-body").html(res);
             $("#form-modal .modal-header").html(title);
             $("#form-modal ").modal('show');
+        
         }
     })
 }
